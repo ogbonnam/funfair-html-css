@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>School Fun Fair 2025 - Get Ready for Pure Vibes!</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary: #FF416C;
+            --secondary: #FF4B2B;
+            --accent: #FFD700;
+            --dark: #333;
+            --light: #FFF;
+            --text: #333;
+        }
+
+        body {
+            background-color: #f8f9fa;
+            color: var(--text);
+            overflow-x: hidden;
+        }
+
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: var(--light);
+            padding: 1rem 5%;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo i {
+            margin-right: 10px;
+            color: var(--accent);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--accent);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://cdn.pixabay.com/photo/2020/10/10/21/54/performers-5644247_1280.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: var(--light);
+            padding: 0 5%;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            animation: fadeInDown 1s ease;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            max-width: 800px;
+            animation: fadeInUp 1s ease;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: var(--light);
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255, 75, 43, 0.4);
+            animation: fadeInUp 1s ease 0.3s;
+            animation-fill-mode: both;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 7px 20px rgba(255, 75, 43, 0.6);
+        }
+
+        /* Event Details */
+        .event-details {
+            padding: 5rem 5%;
+            background-color: var(--light);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: var(--primary);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .details-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .detail-card {
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .detail-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .detail-card i {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .detail-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+
+        .detail-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Attractions Section */
+        .attractions {
+            padding: 5rem 5%;
+            background-color: #f1f3f5;
+        }
+
+        .attractions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .attraction-card {
+            background-color: var(--light);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .attraction-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .attraction-img {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .attraction-content {
+            padding: 1.5rem;
+        }
+
+        .attraction-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        .attraction-content p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: var(--light);
+            padding: 3rem 5%;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .social-links {
+            display: flex;
+            margin-top: 1.5rem;
+        }
+
+        .social-links a {
+            color: var(--light);
+            font-size: 1.5rem;
+            margin: 0 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: var(--accent);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            margin-top: 2rem;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* Animations */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Mobile Responsiveness */
+        .menu-toggle {
+            display: none;
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background: linear-gradient(135deg, var(--primary), var(--secondary));
+                flex-direction: column;
+                align-items: center;
+                padding: 2rem 0;
+                transform: translateY(-150%);
+                transition: transform 0.3s ease;
+                z-index: 999;
+            }
+
+            .nav-links.active {
+                transform: translateY(0);
+            }
+
+            .nav-links li {
+                margin: 1rem 0;
+            }
+
+            .menu-toggle {
+                display: block;
+                font-size: 1.5rem;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <i class="fas fa-star"></i>
+                <span>Fun Fair 2025</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="tickets.html">Tickets</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>SCHOOL FUN FAIR 2025</h1>
+        <p>OMO THIS YEARS FUN FAIR GO MAD O. GET READY FOR PURE VIBES!</p>
+        <a href="tickets.html" class="cta-button">Get Your Tickets Now</a>
+    </section>
+
+    <section class="event-details">
+        <div class="container">
+            <h2 class="section-title">Event Details</h2>
+            <div class="details-grid">
+                <div class="detail-card">
+                    <i class="fas fa-calendar-alt"></i>
+                    <h3>Date</h3>
+                    <p>13th December 2025</p>
+                </div>
+                <div class="detail-card">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h3>Venue</h3>
+                    <p>Noble Hall Grounds</p>
+                </div>
+                <div class="detail-card">
+                    <i class="fas fa-clock"></i>
+                    <h3>Time</h3>
+                    <p>10:00 AM - 10:00 PM</p>
+                </div>
+                <div class="detail-card">
+                    <i class="fas fa-ticket-alt"></i>
+                    <h3>Tickets</h3>
+                    <p>Early Bird: ₦10,000<br>Regular: ₦15,000</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="attractions">
+        <div class="container">
+            <h2 class="section-title">Attractions & Activities</h2>
+            <div class="attractions-grid">
+                <div class="attraction-card">
+                    <div class="attraction-img" style="background-image: url('https://images.unsplash.com/photo-1580136597935-fe8a2864d3ff?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80');"></div>
+                    <div class="attraction-content">
+                        <h3>Games & Rides</h3>
+                        <p>Experience thrilling rides and exciting games that will keep you entertained all day long!</p>
+                    </div>
+                </div>
+                <div class="attraction-card">
+                    <div class="attraction-img" style="background-image: url('https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80');"></div>
+                    <div class="attraction-content">
+                        <h3>Live Music</h3>
+                        <p>Get moving to the beats of amazing artists and DJs performing throughout the event!</p>
+                    </div>
+                </div>
+                <div class="attraction-card">
+                    <div class="attraction-img" style="background-image: url('https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80');"></div>
+                    <div class="attraction-content">
+                        <h3>Food Stalls</h3>
+                        <p>Delicious food and treats for everyone! Suya lovers, we see you!</p>
+                    </div>
+                </div>
+                <div class="attraction-card">
+                    <div class="attraction-img" style="background-image: url('https://images.unsplash.com/photo-1492684223066-81342ee5ff30?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80');"></div>
+                    <div class="attraction-content">
+                        <h3>Competitions</h3>
+                        <p>Exciting competitions with amazing prizes you don't want to miss!</p>
+                    </div>
+                </div>
+                <div class="attraction-card">
+                    <div class="attraction-img" style="background-image: url('https://images.unsplash.com/photo-1470225620780-dba8ba36b745?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80');"></div>
+                    <div class="attraction-content">
+                        <h3>Concerts</h3>
+                        <p>Live performances from your favorite artists that will blow your mind!</p>
+                    </div>
+                </div>
+                <div class="attraction-card">
+                    <div class="attraction-img" style="background-image: url('https://images.unsplash.com/photo-1533450718592-29d45635f0a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80');"></div>
+                    <div class="attraction-content">
+                        <h3>Fun Activities</h3>
+                        <p>Games, face painting, photo booths and more for the whole family!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <h3>School Fun Fair 2025</h3>
+            <p>Get ready for pure vibes!</p>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+            <p class="copyright">&copy; 2025 School Fun Fair. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.querySelector('.menu-toggle').addEventListener('click', function() {
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', function() {
+                document.querySelector('.nav-links').classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html>
